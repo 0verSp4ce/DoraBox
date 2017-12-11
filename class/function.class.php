@@ -5,9 +5,8 @@
 */
 class Func {
 
-	static $form_method;
-	static $form_params;
-	//静态化成员方法，因为外部不需要调用，所以静态化。
+	var $form_method;
+	var $form_params;
 	
 	public function __construct($form_method='', $form_params=''){
 		//构造函数，对象创建时获取form表单的相关传参，以便con_html方法生成
