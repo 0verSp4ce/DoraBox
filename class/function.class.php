@@ -33,7 +33,7 @@ class Func {
 	}
 
 	public function con_mysql($t_name, $c_name, $c_value, $sql_type){
-		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('bad!');
+		$conn = @mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('bad!');
 		mysql_query("SET NAMES utf-8");
 		mysql_select_db(DB_NAME, $conn) OR emMsg("数据库连接失败");
 		$sql_num = "SELECT * FROM {$t_name} WHERE {$c_name} = {$c_value}";
