@@ -5,8 +5,9 @@
 */
 class Func {
 
-	var $form_method;
-	var $form_params;
+	private $form_method;
+	private $form_params;
+	//外部无需使用，所以设置为私有成员属性
 	
 	
 	public function __construct($form_method='', $form_params=''){
