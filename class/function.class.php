@@ -43,7 +43,8 @@ class Func {
 		$sql_search = "SELECT * FROM {$t_name} WHERE {$c_name} like '%{$c_value}%'"; //search
 		$sql_name = "sql_".$sql_type;
 		$result = mysql_query($$sql_name, $conn) or die(mysql_error());
-		$row = mysql_fetch_array($result, MYSQL_ASSOC);
+		$row = mysql_fetch_assoc($result);
+		mysql_free_result($result);
 		mysql_close($conn);
 		return $row;
 	}
