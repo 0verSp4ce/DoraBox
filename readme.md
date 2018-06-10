@@ -92,3 +92,4 @@ $ sudo docker run -d --name dorabox -p 8080:80 dorabox:lastest
 $ sudo ./rollback.sh
 ```
 这时候你在本地的8080端口就运行这DoraBox的web服务。
+![dorabox](./image.png)
