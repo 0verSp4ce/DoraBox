@@ -9,7 +9,6 @@ class Func {
 	private $form_params;
 	//外部无需使用，所以设置为私有成员属性
 	
-	
 	public function __construct($form_method='', $form_params=''){
 		//构造函数，对象创建时获取form表单的相关传参，以便con_html方法生成
 		$this -> form_method = $form_method;
@@ -21,7 +20,6 @@ class Func {
 		$func_array = func_get_args();
 		$name = func_get_arg(0);
 		array_shift($func_array);
-		echo "<hr>";
 		return call_user_func_array($name,$func_array);
 	}
 
@@ -31,25 +29,27 @@ class Func {
 		echo "{$this->form_params}: <input type='text' name='{$this->form_params}' id='form1'>";
 		echo "<input type='submit' name='submit' value='submit'>";
 		echo "</form>";
+		echo "<hr>";
 
 	}
 
 	public function con_mysql($t_name, $c_name, $c_value, $sql_type){
-		//mysql
-		$conn = @mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('bad!');
-		mysql_query("SET NAMES utf-8");
-		mysql_select_db(DB_NAME, $conn) OR emMsg("数据库连接失败");
+		//mysqli
+		$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die('bad!');
+		$mysqli->set_charset("utf8");
+		if($mysqli -> connect_errno)
+		{
+			printf("Error: {$mysqli->connect_error}");
+			exit();
+		}
 		$sql_num = "SELECT * FROM {$t_name} WHERE {$c_name} = {$c_value}"; //num
 		$sql_string = "SELECT * FROM {$t_name} WHERE {$c_name} = '{$c_value}'"; //string
 		$sql_search = "SELECT * FROM {$t_name} WHERE {$c_name} like '%{$c_value}%'"; //search
 		$sql_name = "sql_".$sql_type;
-		$result = mysql_query($$sql_name, $conn) or die(mysql_error());
-		$row = mysql_fetch_assoc($result);
-		mysql_free_result($result);
-		mysql_close($conn);
-		return $row;
+		$result = $mysqli->query($$sql_name)->fetch_assoc();
+		$mysqli->close();
+		return $result;
 	}
-
 
 }
 
