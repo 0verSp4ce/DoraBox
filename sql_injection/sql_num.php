@@ -14,7 +14,7 @@ if (isset($_REQUEST['submit'])) {
 	$id = empty($_REQUEST['id']) ? 1 : $_REQUEST['id'];
 	$row = $p -> con_mysql("news","id",$id,"num");
 	$id = htmlspecialchars($id);
-	echo "<hr>SQLi语句：SELECT * FROM news WHERE id = <font color='red'>{$id}</font>";
+	echo "SQLi语句：SELECT * FROM news WHERE id = <font color='red'>{$id}</font>";
 	echo "<hr>";
 	echo "<center><table border='2'><tr><td>标题</td><td>内容</td></tr><tr><td>{$row['title']}</td><td>{$row['content']}</td></tr></table></center>";
 }

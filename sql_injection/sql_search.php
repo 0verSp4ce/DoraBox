@@ -14,7 +14,7 @@ if (isset($_REQUEST['submit'])) {
 	$content = empty($_REQUEST['content']) ? "is" : $_REQUEST['content'];
 	$row = $p -> con_mysql("news","content",$content,"search");
 	$content = htmlspecialchars($content);
-	echo "<hr>SQLi语句：SELECT * FROM news WHERE content like '%<font color='red'>$content</font>%'";
+	echo "SQLi语句：SELECT * FROM news WHERE content like '%<font color='red'>$content</font>%'";
 	echo "<hr>";
 	echo "<center><table border='2'><tr><td>标题</td><td>内容</td></tr><tr><td>{$row['title']}</td><td>{$row['content']}</td></tr></table></center>";
 }
