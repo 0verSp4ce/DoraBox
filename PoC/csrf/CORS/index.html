@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CORS PoC</title>
+</head>
+<body>
+<center>
+	GET Request
+	<form action="./get.php">
+		URL: <input type="text" name="url"><br>
+		<input type="submit" value="Attack">
+	</form>
+	<br><br>
+	POST Request
+	<form action="./post.php" id="postform">
+		URL: <input type="text" name="url"><br>
+		Data: <br><textarea rows="4" cols="50" name="data" form="postform"></textarea><br>
+		<input type="submit" value="Attack">
+	</form>
+</center>
+</body>
+</html>

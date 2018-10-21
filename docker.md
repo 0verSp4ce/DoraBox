@@ -4,6 +4,7 @@
 
 假回滚：
 一个脚本定时进行回滚（初始化）：
+
 ```bash
 #!/bin/bash
 while true
@@ -16,16 +17,21 @@ do
 	sleep 10m
 done
 ```
+
 修改sleep 10m为你想要做的定时时间（**别忘记运行的时候使用root权限**）
 如何获取到我这个Docker镜像？
 运行这条命令：
+
 ```bash
 $ sudo docker pull registry.cn-qingdao.aliyuncs.com/dorabox/dorabox:lastest
 ```
+
 接下来你可以运行：
+
 ```bash
 $ sudo docker run -d --name dorabox -p 8080:80 dorabox:lastest
 $ sudo ./rollback.sh
 ```
-这时候你在本地的8080端口就运行这DoraBox的web服务。
 
+这时候你在本地的8080端口就运行这DoraBox的web服务。
+![dorabox](./img/image.png)

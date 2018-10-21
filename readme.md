@@ -10,11 +10,80 @@ DoraBox，名字起源于哆啦A梦的英文，几个月前就写了这个靶场
 
 掌握常见漏洞攻防，快速提升渗透能力
 
-界面很丑，学过前端，但是懒得去搞了，希望谅解。
+界面很丑，学过前端，但是懒得去搞了。
 
-DoraBox 的组成部分：
+作者：Vulkey_Chen
 
-![dorabox](./img/0.png)
+Blog：gh0st.cn
+
+如果有建议或者问题可以发送到邮箱：admin@gh0st.cn
+
+## DoraBox 组成
+
+**目录结构：**
+
+```tree
+.
+├── LICENSE
+├── PoC #PoC存放目录
+│   ├── csrf
+│   │   ├── CORS
+│   │   │   ├── get.php
+│   │   │   ├── index.html
+│   │   │   └── post.php
+│   │   └── jsonp.html
+│   └── race_condition
+│       ├── pay_poc.py
+│       └── upload_poc.py
+├── class #类方法目录
+│   └── function.class.php
+├── code_exec #代码执行&&命令执行
+│   ├── code.php
+│   └── exec.php
+├── conn.php
+├── csrf #CSRF（客户端脚本伪造）
+│   ├── jsonp.php
+│   └── userinfo.php
+├── docker-image.md
+├── file_include #文件包含
+│   ├── any_include.php
+│   ├── include_1.php
+│   └── txt.txt
+├── file_upload #文件上传
+│   ├── any_upload.php
+│   ├── upload
+│   │   └── test.txt
+│   ├── upload_content.php
+│   ├── upload_js.php
+│   ├── upload_mime.php
+│   └── upload_name.php
+├── image.png
+├── img
+│   └── dorabox.png
+├── index.html
+├── others #其他
+│   └── file_read.php
+├── pentest.sql
+├── race_condition #条件竞争（HTTP并发）
+│   ├── key.php
+│   ├── pay.php
+│   ├── upload.php
+│   └── uploads
+│       └── test.txt
+├── readme.md
+├── sql_injection #SQL注入
+│   ├── sql_num.php
+│   ├── sql_search.php
+│   └── sql_string.php
+├── ssrf #SSRF（服务端请求伪造）
+│   └── ssrf.php
+└── xss #XSS（跨站脚本）
+    ├── dom_xss.php
+    ├── reflect_xss.php
+    └── stored_xss.php
+```
+
+**网站结构：**
 
 1.MySQL数据库(pentest.sql 导入到MySQL中即可)
 
@@ -46,7 +115,7 @@ public function con_function(){
 
 
 
-3.集合的漏洞类型：（这里的限制是只可以绕过）
+## 集合的漏洞类型
 
 - SQL注入：数字型、字符型、搜索型
 - XSS：反射型、存储型、DOM型
@@ -55,41 +124,9 @@ public function con_function(){
 - 代码/命令执行：任意
 - SSRF：SSRF（回显）
 - 其他：条件竞争（支付&上传）、任意文件读取
-- CSRF：增加CSRF读取型（JSONP） 
+- CSRF：增加CSRF读取型（JSONP劫持、CORS跨域资源读取） 
 
-除此之外还有一些poc、exp在项目中，自己发现咯~
-
-如果有建议或者问题可以发送到邮箱:gh0stkey@qq.com
+除此之外还有一些poc在项目的PoC目录中。
 
 ## Docker
-最近在部署自己的靶场(Dorabox 链接：https://github.com/gh0stkey/DoraBox) 在Docker上，虽然以前学过但是没有真正的自己去部署，实际操作还是遇到了很多坑。
-
-首先我pull下来的是tutum/lamp，当我创建容器的时候，我发现了run.sh(当创建容器后运行)这个坑，对其进行了修改；还有一个坑就是，当我commit容器为镜像，再从这个镜像中创建容器的时候发现Mysql数据没有存留，所以我在run.sh内写入了 `mysql < /var/www/html/pentest.sql` 这个语句，当创建时自动导入pentest.sql文件，这样我就可以做到数据初始化了。
-
-假回滚：
-一个脚本定时进行回滚（初始化）：
-```bash
-#!/bin/bash
-while true
-do
-	echo "----------[ Starting ]----------"
-	docker container kill dorabox
-	docker container rm dorabox
-	docker run -d --name dorabox -p 8080:80 dorabox:ghost
-	echo "----------[ Finished ]----------"
-	sleep 10m
-done
-```
-修改sleep 10m为你想要做的定时时间（**别忘记运行的时候使用root权限**）
-如何获取到我这个Docker镜像？
-运行这条命令：
-```bash
-$ sudo docker pull registry.cn-qingdao.aliyuncs.com/dorabox/dorabox:lastest
-```
-接下来你可以运行：
-```bash
-$ sudo docker run -d --name dorabox -p 8080:80 dorabox:lastest
-$ sudo ./rollback.sh
-```
-这时候你在本地的8080端口就运行这DoraBox的web服务。
-![dorabox](./image.png)
+[Read This](./docker.md)
