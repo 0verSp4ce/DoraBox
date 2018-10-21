@@ -104,12 +104,11 @@ Blog：gh0st.cn
 
 ```php
 public function con_function(){
-	//自己造的回调
-	$func_array = func_get_args();
-	$name = func_get_arg(0);
-	array_shift($func_array);
-	echo "<hr>";
-	return call_user_func_array($name,$func_array);
+		//自己造的回调
+		$func_array = func_get_args();
+		$name = func_get_arg(0);
+		array_shift($func_array);
+		return call_user_func_array($name,$func_array);
 }
 ```
 
