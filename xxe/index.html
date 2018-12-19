@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DoraBox - XXE</title>
+</head>
+<body>
+<!--code refence:https://github.com/c0ny1/xxe-lab/blob/master/php_xxe/-->
+<form action="./login.php" method="post">
+	账户：<input type="name" name="username" id="name"><br>
+	密码：<input type="name" name="password" id="pwd"><br>
+	<input type="submit" value="登录" onclick="doLogin(); return false;">
+</form>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+function doLogin(){
+	var username = document.getElementById("name").value;
+	var password = document.getElementById("pwd").value;
+
+	if(username == "" || password == ""){
+		alert("请输入账户/密码！");
+		return;
+	}
+	
+	var data = "<user><username>" + username + "</username><password>" + password + "</password></user>"; 
+    $.ajax({
+        type: "POST",
+        url: "login.php",
+        contentType: "application/xml;charset=utf-8",
+        data: data,
+        dataType: "xml",
+        anysc: false,
+        success: alert("登录成功！")
+    }); 
+}
+</script>
+</body>
+</html>
