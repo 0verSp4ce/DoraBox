@@ -16,7 +16,7 @@ echo "
 <form action='' method='post'>
     余额：{$rest}元
     <br>
-    支付<input type='text' name='money'>元给林晨去啪啪啪<br>
+    支付<input type='text' name='money'>元给林晨去买辣条<br>
     <input type='submit' value='支付'><br>
     林晨现在手里有{$own}元
 </form>
