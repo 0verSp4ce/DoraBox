@@ -1,4 +1,4 @@
-﻿html * {
+html * {
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale
 }
@@ -8,6 +8,7 @@
     box-sizing:border-box
 }
 body {
+    overflow: hidden;
     font-size:100%;
     font-family:ubuntu,sans-serif;
     color:#333;
