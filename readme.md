@@ -1,6 +1,6 @@
 # 前言
 
-DoraBox，名字起源于哆啦A梦的英文，希望DoraBox能帮助你像大雄借助哆啦A梦的百宝袋一样学习到一些东西。
+DoraBox，名字起源于哆啦A梦的英文，希望DoraBox能让你像大雄借助哆啦A梦的百宝袋一样学习到一些东西。​
 
 ![dorabox](./img/dorabox.png)
 
