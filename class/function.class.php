@@ -1,7 +1,7 @@
 <?php
 /*
 *	Just for fun.
-*	Auther : vulkey(mstsec)
+*	Auther : vulkey(OverSpace)
 */
 class Func {
 
