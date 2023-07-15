@@ -1,104 +1,118 @@
-<!doctype html>
-<html lang="zh" class="no-js">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href='css/acdde9156ed64dceaf4e5a401bfc4665.css' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/reset.css"> 
-<link rel="stylesheet" href="css/style.css"> 
+    <meta charset="utf-8">
+    <title>DoraBox - 漏洞训练靶场</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
-<title>DoraBox - 掌握常见漏洞攻防，快速提升渗透能力</title>
+
 <body>
-<div class="title">
-<p>DoraBox - 掌握常见漏洞攻防，快速提升渗透能力</p>
-<hr>
-</div>
-<section id="cd-table">
-
-<div class="cd-table-container">
-
-<div class="cd-table-column">
-<h2>SQL注入</h2>
-<ul>
-<li><a href="./sql_injection/sql_num.php" target="_blank">SQLi 数字型</a></li>
-<li><a href="./sql_injection/sql_string.php" target="_blank">SQLi 字符型</a></li>
-<li><a href="./sql_injection/sql_search.php" target="_blank">SQLi 搜索型</a></li>
-<li ></li>
-<li></li>
-</ul>
-</div> 
-<div class="cd-table-column">
-<h2>XSS跨站</h2>
-<ul>
-<li><a href="./xss/reflect_xss.php" target="_blank">XSS 反射型</a></li>
-<li><a href="./xss/stored_xss.php" target="_blank">XSS 存储型</a></li>
-<li><a href="./xss/dom_xss.php" target="_blank">XSS DOM型</a></li>
-<li class="cd-unchecked"></li>
-<li></li>
-</ul>
-</div> 
-<div class="cd-table-column">
-<h2>CSRF</h2>
-<ul>
-<li> <a href="./csrf/jsonp.php?callback=test" target="_blank">JSONP劫持</a></li>
-<li><a href="./csrf/userinfo.php" target="_blank">CORS跨域资源读取</a></li>
-<li></li>
-<li class="cd-checked"><span>Yes</span></li>
-<li></li>
-</ul>
-</div> 
-<div class="cd-table-column">
-<h2>文件包含</h2>
-<ul>
-<li><a href="./file_include/any_include.php" target="_blank">任意文件包含</a></li>
-<li><a href="./file_include/include_1.php" target="_blank">目录限制文件包含</a></li>
-<li></li>
-<li class="cd-checked"></li>
-<li></li>
-</ul>
-</div> 
-<div class="cd-table-column">
-<h2>文件上传</h2>
-<ul>
-<li><a href="./file_upload/any_upload.php" target="_blank">任意文件上传</a></li>
-<li><a href="./file_upload/upload_js.php" target="_blank">JS限制文件上传</a></li>
-<li><a href="./file_upload/upload_mime.php" target="_blank">MIME限制文件上传</a></li>
-<li ><a href="./file_upload/upload_name.php" target="_blank">扩展名限制文件上传</a></li>
-<li><a href="./file_upload/upload_content.php" target="_blank">内容限制文件上传</a></li>
-</ul>
-</div>
- <div class="cd-table-column">
-        <h2>代码/命令执行</h2>
-        <ul>
-            <li><a href="./code_exec/code.php" target="_blank">任意代码执行</a></li>
-            <li><a href="./code_exec/exec.php" target="_blank">任意命令执行</a></li>
-            <li></li>
-            <li ></li>
-            <li></li>
-        </ul>
-    </div>
-    <div class="cd-table-column">
-        <h2>SSRF</h2>
-        <ul>
-            <li><a href="./ssrf/ssrf.php" target="_blank">SSRF</a></li>
-            <li></li>
-            <li></li>
-            <li ></li>
-            <li></li>
-        </ul>
-    </div>
-    <div class="cd-table-column">
-        <h2>其他</h2>
-        <ul>
-            <li><a href="./race_condition/pay.php" target="_blank">条件竞争-支付</a></li>
-            <li><a href="./race_condition/upload.php" target="_blank">条件竞争-上传</a></li>
-            <li><a href="./others/file_read.php" target="_blank">任意文件读取</a></li>
-            <li><a href="./xxe/" target="_blank">XXE</a></li>
-            <li></li>
-        </ul>
-    </div>
-</div>
-<em class="cd-scroll-right"></em>
-</section> 
+    <h1>DoraBox - 掌握常见漏洞攻防，快速提升渗透能力</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>SQL注入</th>
+                <th>XSS跨站</th>
+                <th>CSRF</th>
+                <th>文件包含</th>
+                <th>文件上传</th>
+                <th>代码/命令执行</th>
+                <th>SSRF</th>
+                <th>其他</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="./sql_injection/sql_num.php" target="_blank">SQLi 数字型</a></td>
+                <td><a href="./xss/reflect_xss.php" target="_blank">XSS 反射型</a></td>
+                <td><a href="./csrf/jsonp.php?callback=test" target="_blank">JSONP劫持</a></td>
+                <td><a href="./file_include/any_include.php" target="_blank">任意文件包含</a></td>
+                <td><a href="./file_upload/any_upload.php" target="_blank">任意文件上传</a></td>
+                <td><a href="./code_exec/code.php" target="_blank">任意代码执行</a></td>
+                <td><a href="./ssrf/ssrf.php" target="_blank">SSRF</a></td>
+                <td><a href="./race_condition/pay.php" target="_blank">条件竞争-支付</a></td>
+            </tr>
+            <tr>
+                <td><a href="./sql_injection/sql_string.php" target="_blank">SQLi 字符型</a></td>
+                <td><a href="./xss/stored_xss.php" target="_blank">XSS 存储型</a></td>
+                <td><a href="./csrf/userinfo.php" target="_blank">CORS跨域资源读取</a></td>
+                <td><a href="./file_include/include_1.php" target="_blank">目录限制文件包含</a></td>
+                <td><a href="./file_upload/upload_js.php" target="_blank">JS限制文件上传</a></td>
+                <td><a href="./code_exec/exec.php" target="_blank">任意命令执行</a></td>
+                <td></td>
+                <td><a href="./race_condition/upload.php" target="_blank">条件竞争-上传</a></td>
+            </tr>
+            <tr>
+                <td><a href="./sql_injection/sql_search.php" target="_blank">SQLi 搜索型</a></td>
+                <td><a href="./xss/dom_xss.php" target="_blank">XSS DOM型</a></td>
+                <td></td>
+                <td></td>
+                <td><a href="./file_upload/upload_mime.php" target="_blank">MIME限制文件上传</a></td>
+                <td></td>
+                <td></td>
+                <td><a href="./others/file_read.php" target="_blank">任意文件读取</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="./file_upload/upload_name.php" target="_blank">扩展名限制文件上传</a></td>
+                <td></td>
+                <td></td>
+                <td><a href="./xxe/" target="_blank">XXE</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="./file_upload/upload_content.php" target="_blank">内容限制文件上传</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
+
 </html>
